@@ -26,9 +26,9 @@
                 $id = $_SESSION["idUser"];
                 $name = $_SESSION["pseudo"];
                 echo "Bienvenue $name <br>";
-                echo "<a name='deconnexion' href='controleur/deconnexion.php'>Déconnection</a>";
+                echo '<form method="post" action="./controleur/CtrlUser.php">
+                        <input type="submit" id="button" value="Deconnexion" name="deconnexion"></form>';
             }else{
-                $_SESSION["idUser"] = NULL;
                 echo "<a href='vues/logsign.php'>Se connecter / s'inscrire</a>";
             }
             ?>
@@ -79,7 +79,7 @@
         </form>
     </div>
     <div id="tasks-list-container">
-        <form method="post" action="controleur/afairecontroller.php">
+        <form method="post" action="controleur/tachecontroller.php">
             <ul id="tasks-list">
                 <!--Insertion ici-->
                 <?php

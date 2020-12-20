@@ -11,14 +11,14 @@
 <h2>Connection / Création De Compte - TODOLIST</h2>
 <div class="container" id="container">
     <div class="form-container sign-up-container">
-        <form method="post" action="../controleur/frontcontroller.php">
+        <form method="post" action="../controleur/CtrlUser.php">
             <h1>Créez un compte !</h1>
             <input type="text" name="nom" placeholder="Nom" required/>
             <input type="text" name="prenom" placeholder="Prénom" required/>
             <input type="text" name="naissance" placeholder="Date de naissance" />
             <input type="email" name="email" placeholder="Email" required/>
             <input type="password" name="password" placeholder="Password" minlength="8" required/>
-            <input type="submit" id="button" value="S'inscrire">
+            <input type="submit" id="button" value="S'inscrire" name="inscription">
         </form>
     </div>
     <div class="form-container sign-in-container">
@@ -27,7 +27,7 @@
             <span>avec vos identifiants</span>
             <input type="email" name="conemail" placeholder="Email" required/>
             <input type="password" name="conpassword" placeholder="Mot de passe" minlength="8" required/>
-            <input type="submit" id="button" value="Connexion">
+            <input type="submit" id="button" value="Connexion" name="connexion">
         </form>
     </div>
     <div class="overlay-container">
