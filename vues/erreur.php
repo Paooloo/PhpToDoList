@@ -18,7 +18,14 @@
         <div class='erreur'>Erreur</div>
         <hr>
         <div class='_1'>NOM ERREUR</div>
-        <div class='_2'><?php session_start();
+        <div class='_2'>
+
+
+            <?php session_start();
+
+            /*
+             * Gérer les erreurs
+             */
 
         echo $_SESSION['erreur'] ?></div>
         <a class='btn' href='../index.php'>RETOUR ACCUEIL</a>

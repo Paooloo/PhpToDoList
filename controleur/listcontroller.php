@@ -1,64 +1,90 @@
 <?php
+/*
+ * Controleur permettant de gérer la suppression, trouver et ajouter une liste
+ */
 
+/*
+ * Importer les pages nécessaire au bon fonctionnement du programme
+ */
 require_once('../modeles/GatewayListe.php');
 require_once('../modeles/Liste.php');
 require_once('../modeles/Connection.php');
+
 session_start();
+
+/*
+ * Informations personnelles de connection à la BDD
+ */
 $user = "dynotsouca";
 $dsn = 'mysql:host=localhost;dbname=todolist;';
 $password="1234";
 
-
-
+/*
+ * Informations sur la liste => De  base initialisé en public
+ */
 $Publie = 0;
 $etat = 0;
 $idUtilisateur = 0;
 
+//création d'un gatewayliste pour gérer les requetes touchant les listes
 $u = new GatewayListe(new Connection($dsn, $user, $password));
 
-
+/*
+ * Si un utilisateur est connecté, change l'etat en privé et l'iduser pour la création de liste
+ */
 if($_SESSION["idUser"] != NULL){
     $idUtilisateur = $_SESSION["idUser"];
     $etat = 1;
 }
 
-//Méthode pour supprimer les tâches d'une liste, puis sa liste
+/*
+ * Méthode pour supprimer une liste
+ * -> récupérer le numéro de la liste
+ * -> supprimer toutes les taches contenu dans cette liste
+ * -> supprimer la liste
+ * -> Récupérer la liste la plus ancienne crée de façon à l'afficher
+ * -> Afficher cette liste récupérée
+ *
+ * Erreur :
+ * -> Si l'on souhaite supprimer la dernière liste publique
+ */
 if(isset($_POST['suppressionListe'])){
-    //echo $u->getnbltotal();
     try {
-        if ($u->getnbltotal() > 1) {
+        //suppression quand il y a plus d'une liste public
+        //suppression quand >1 public et liste est privé
+        if ($u->getnbltotal() > 1 && $u->getnbltotalpriv($idUtilisateur) > 0 || $u->getnbltotalpub($idUtilisateur) > 0) {
             $num = $u->FindByNameOne($_SESSION['listename']);
-            //récupérer le numéro
             foreach ($num as $r) {
                 $numList = $r->getIdListe();
             }
-            //supprimer toutes les taches
             $u->SupprimerTTeLesTaches($numList);
-            //supprimer la liste
             $u->SupprimerList($numList);
-            //afficherp page
             $_SESSION['listenum'] = $u->getnblmin();
-            // Récupérer nom de la liste
             $test = $u->FindByIdOne($_SESSION['listenum']);
             foreach ($test as $r) {
                 $_SESSION['listename'] = $r->getNomDeListe();
             }
-        } else {
-            throw new Exception("Il doit y avoir une liste publique");
+        } else{
+                throw new Exception("Il doit y avoir une liste publique");
+
         }
         header('Location: ../index.php');
     }
-        catch (PDOException $e) {
-            $erreur = $e->getMessage();
-            $_SESSION['erreur'] = $erreur;
-            header('Location: ../vues/erreur.php?var1=' . $_SESSION['erreur']);
-        } catch (Exception $ee) {
-            $erreur = $ee->getMessage();
-            $_SESSION['erreur'] = $erreur;
-            header('Location: ../vues/erreur.php?var1=' . $_SESSION['erreur']);
-        }
+    catch (PDOException $e) {
+        $erreur = $e->getMessage();
+        $_SESSION['erreur'] = $erreur;
+        header('Location: ../vues/erreur.php?var1=' . $_SESSION['erreur']);
+    } catch (Exception $ee) {
+        $erreur = $ee->getMessage();
+        $_SESSION['erreur'] = $erreur;
+        header('Location: ../vues/erreur.php?var1=' . $_SESSION['erreur']);
+    }
 }
-
+/*
+ * Méthode pour Afficher une liste
+ * -> Récupérer la liste
+ * -> Mettre à jour les variables locales
+ */
 if(isset($_POST['laliste'])) {
     try {
 
@@ -80,10 +106,20 @@ if(isset($_POST['laliste'])) {
     }
 }
 
-if(isset($_POST['addList'])){//suppression de liste
+/*
+ * Méthode pour ajouter une liste
+ * -> récupérer le nom de la liste
+ * -> incrémenter le numéro de liste (+1 du max)
+ * -> création de la liste
+ * -> insertion de la liste
+ * -> Afficher cette liste
+ *
+ * Erreur :
+ * -> Si l'on souhaite ajouter une liste sans nom
+ */
+if(isset($_POST['addList'])){
 
     try {
-
         $recupnom = $_POST['nomliste'];
         $lenom = filter_var($recupnom, FILTER_SANITIZE_STRING);
         if($recupnom == ""){

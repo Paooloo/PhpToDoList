@@ -1,5 +1,7 @@
 <?php
-
+/*
+ * Classe Liste
+ */
 
 class Liste
 {
