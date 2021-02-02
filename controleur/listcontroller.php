@@ -50,6 +50,11 @@ if($_SESSION["idUser"] != NULL){
  */
 if(isset($_POST['suppressionListe'])){
     try {
+<<<<<<< HEAD
+=======
+        //suppression quand il y a plus d'une liste public
+        //suppression quand >1 public et liste est privé
+>>>>>>> 2443aa30694e467989ad4dd0dd953b24bd588c37
         if ($u->getnbltotal() > 1 && $u->getnbltotalpriv($idUtilisateur) > 0 || $u->getnbltotalpub($idUtilisateur) > 0) {
             $num = $u->FindByNameOne($_SESSION['listename']);
             foreach ($num as $r) {

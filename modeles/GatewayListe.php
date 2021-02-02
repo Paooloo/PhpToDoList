@@ -38,7 +38,11 @@ class GatewayListe
     }
 
     /*
+<<<<<<< HEAD
      * Retourne le nombre total des id public
+=======
+     * Retourne le nombre total des id
+>>>>>>> 2443aa30694e467989ad4dd0dd953b24bd588c37
      */
     public function getnbltotal() :int {
         $this->con->executeQuery("SELECT COUNT(*) FROM liste WHERE Public=0");
