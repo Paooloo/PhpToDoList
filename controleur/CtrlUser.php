@@ -66,7 +66,6 @@ if(isset($_POST['connexion'])){
         $u = new GatewayUtilisateur(new Connection($dsn, $user, $password));
 
         //Recherche dans la base de données l'email
-<<<<<<< HEAD
         if($result= $u->FindByEmail($conEmail)){
             //Pour tous les résultats obtenu de la recherche
             foreach ($result as $r){
@@ -82,7 +81,6 @@ if(isset($_POST['connexion'])){
                     $_SESSION['erreur'] = $erreur;
                     header('Location: ../vues/erreur.php?var1=' . $_SESSION['erreur']);
                 }
-=======
         $result= $u->FindByEmail($conEmail);
 
         //Pour tous les résultats obtenu de la recherche
@@ -98,16 +96,10 @@ if(isset($_POST['connexion'])){
                 $erreur ='Mot de passe incorrect';
                 $_SESSION['erreur'] = $erreur;
                 header('Location: ../vues/erreur.php?var1=' . $_SESSION['erreur']);
->>>>>>> 2443aa30694e467989ad4dd0dd953b24bd588c37
             }
         }else {
             throw new Exception("Mauvais email");
         }
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 2443aa30694e467989ad4dd0dd953b24bd588c37
     }catch (PDOException $e){
         //Exception lié a la base de données
         $erreur = $e -> getMessage();
@@ -137,11 +129,7 @@ if(isset($_POST['inscription'])){
         $bool=-1;
     }
     if($bool<0){
-<<<<<<< HEAD
         header('location: ../vues/erreur.php');
-=======
-        header('location: ../erreur.php');
->>>>>>> 2443aa30694e467989ad4dd0dd953b24bd588c37
     }
 
     //Filtre de la date de naissance
