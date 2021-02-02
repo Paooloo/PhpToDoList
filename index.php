@@ -21,15 +21,19 @@
             <br/>
 
             <?php
+            /*
+             * Gérer l'authentification
+             */
+
             session_start();
             if (isset($_SESSION["idUser"])){
                 $id = $_SESSION["idUser"];
                 $name = $_SESSION["pseudo"];
-                echo "Bienvenue $name <br>";
+                echo "$name <br>";
                 echo '<form method="post" action="./controleur/CtrlUser.php">
-                        <input type="submit" id="button" value="Deconnexion" name="deconnexion"></form>';
+                       <input type="submit" id="button" value="Deconnexion" name="deconnexion"></form>';
             }else{
-                echo "<a href='vues/logsign.php'>Se connecter / s'inscrire</a>";
+                echo '<form method="post" action="vues/logsign.php"><input type="submit" id="button" value="Se connecter"></form>';
             }
             ?>
 
@@ -46,7 +50,11 @@
             <div id="lists-container">
 
                 <?php
-                    include("controleur/afficherListe.php");
+                /*
+                 * Affichage des listes
+                 */
+                    include("controleur/frontcontroler.php");
+                    frontcontroler::bonsoir(1);
                 ?>
 
             </div>
@@ -59,6 +67,9 @@
     <header>
         <div class="list-name">
             <h1 id="nomListActive"><?php
+                /*
+                 * Affichage le nom des listes
+                 */
                     echo $_SESSION['listename'];
                 ?></h1>
         </div>
@@ -83,14 +94,17 @@
             <ul id="tasks-list">
                 <!--Insertion ici-->
                 <?php
+                /*
+                 * Affichage des tâches
+                 */
 
-                    include("controleur/affichagetache.php");
+                frontcontroler::bonsoir(2);
 
                 ?>
             </ul>
             <div id="tasks-list-actions">
-                <input type="submit" name="action-task-done" class="button" value="Marqué Fait"/>
-                <input type="submit" name="action-task-todo" class="button" value="Marqué A faire"/>
+                <input type="submit" name="action-task-todo" class="button" value="Marqué Fait"/>
+                <input type="submit" name="action-task-done" class="button" value="Marqué A faire"/>
                 <input type="submit" name="action-task-delete" class="button red" value="Supprimer Tache"/>
             </div>
         </form>

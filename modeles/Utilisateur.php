@@ -1,4 +1,7 @@
 <?php
+/*
+ * Classe Utilisateur
+ */
 
 
 class Utilisateur

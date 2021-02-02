@@ -1,5 +1,7 @@
 <?php
-
+/*
+ * Classe Tache
+ */
 
 class Tache
 {

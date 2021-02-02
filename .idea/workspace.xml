@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="16e3e63c-be67-4cf8-ae5d-cc6a788f8ae2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/controleur/frontcontroler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/affichagetache.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/afficherListe.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/frontcontroller.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/listcontroller.php" beforeDir="false" afterPath="$PROJECT_DIR$/controleur/listcontroller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/tachecontroller.php" beforeDir="false" afterPath="$PROJECT_DIR$/controleur/tachecontroller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1lyKGw5DBW1ivWv2toODZ960Eo4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="16e3e63c-be67-4cf8-ae5d-cc6a788f8ae2" name="Default Changelist" comment="" />
+      <created>1608563799890</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608563799890</updated>
+      <workItem from="1608563801415" duration="2361000" />
+      <workItem from="1609687353474" duration="394000" />
+      <workItem from="1609773169375" duration="586000" />
+      <workItem from="1609867120518" duration="708000" />
+      <workItem from="1609923188126" duration="434000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="763" y="283" key="NewPhpClassDialog" timestamp="1608565499823">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="763" y="283" key="NewPhpClassDialog/0.40.1920.1040/1920.0.1920.1040@0.40.1920.1040" timestamp="1608565499823" />
+  </component>
+</project>
